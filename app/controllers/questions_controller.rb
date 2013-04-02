@@ -6,7 +6,6 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @questions }
     end
   end
 
@@ -24,11 +23,11 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   # GET /questions/new.json
   def new
+    @room = Room.find(params[:room_id])
     @question = Question.new
 
     respond_to do |format|
       format.html # new.html.erb
-      # format.json { render json: @question }
     end
   end
 
@@ -43,13 +42,9 @@ class QuestionsController < ApplicationController
     @question = Question.new(params[:question])
 
     respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render json: @question, status: :created, location: @question }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+      @question.save
+      @room = Question.find(@question.id).room
+      format.html { render action: "new" }
     end
   end
 

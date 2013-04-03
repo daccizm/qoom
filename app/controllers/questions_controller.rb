@@ -3,6 +3,7 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @questions = Question.all
+    @room = Room.find(params[:room_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,6 +25,7 @@ class QuestionsController < ApplicationController
   # GET /questions/new.json
   def new
     @room = Room.find(params[:room_id])
+    @questions = Question.find(:all)
     @question = Question.new
 
     respond_to do |format|
@@ -39,12 +41,15 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(params[:question])
+    question = Question.new(params[:question])
 
     respond_to do |format|
-      @question.save
-      @room = Question.find(@question.id).room
-      format.html { render action: "new" }
+      question.save
+      @question = Question.new
+      @question.nickname = question.nickname
+      @room = Room.find(params[:room_id])
+      @questions = Question.find(:all)
+      format.html { render action: "new", notice: 'Question was successfully updated.' }
     end
   end
 

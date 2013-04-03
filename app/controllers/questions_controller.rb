@@ -2,11 +2,10 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
-    @room = Room.find(params[:room_id])
-
+    @questions = Question.sorted_created_at_desc
     respond_to do |format|
-      format.html # index.html.erb
+      # format.html # index.html.erb
+      format.js   { render action: "refresh.js.erb" }
     end
   end
 
@@ -25,7 +24,7 @@ class QuestionsController < ApplicationController
   # GET /questions/new.json
   def new
     @room = Room.find(params[:room_id])
-    @questions = Question.find(:all)
+    @questions = Question.sorted_created_at_desc
     @question = Question.new
 
     respond_to do |format|
@@ -48,7 +47,7 @@ class QuestionsController < ApplicationController
       @question = Question.new
       @question.nickname = question.nickname
       @room = Room.find(params[:room_id])
-      @questions = Question.find(:all)
+      @questions = Question.sorted_created_at_desc
       format.html { render action: "new", notice: 'Question was successfully updated.' }
     end
   end

@@ -1,18 +1,26 @@
 <%- model_class = Room -%>
-<div class="page-header">
-  <h1>Roomを選択してください。</h1>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%=t '.title', :default => model_class.model_name.human.pluralize %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @rooms.each do |room| %>
+<div class="span3"></div>
+
+<div class="span6">
+
+  <div class="page-header">
+    <h1>Roomを選択</h1>
+  </div>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= link_to room.name, new_room_question_path( room.id ) %></td>
+        <th><%=t '.title', :default => model_class.model_name.human %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td><%= link_to room.name, new_room_question_path( room.id ) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="span3"></div>

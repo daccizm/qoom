@@ -1,9 +1,4 @@
-<%= form_for [@room, @question], :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <div class="controls">
-      <%= f.text_field :nickname, :class => 'text_field',:placeholder => "（必須）ニックネーム" %>
-    </div>
-  </div>
+<%= form_for [@room, @question] do |f| %>
   <div class="control-group">
     <div class="controls">
       <%= f.text_area :content, :class => 'text_area',:placeholder => "（必須）質問内容", :size=>"60x10" %>

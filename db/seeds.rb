@@ -10,6 +10,24 @@
 Room.delete_all
 Question.delete_all
 
-Room.create(
-			name: '2013年○○○会'
-	)
+room = Room.create( name: 'レスポンステスト' )
+Room.create( name: '2013年男祭り' )
+Room.create( name: '2013年乙女祭り' )
+Room.create( name: '予備1' )
+Room.create( name: '予備2' )
+Room.create( name: '予備3' )
+Room.create( name: '予備4' )
+Room.create( name: '予備5' )
+Room.create( name: '予備6' )
+Room.create( name: '予備7' )
+Room.create( name: '予備8' )
+Room.create( name: '予備9' )
+
+(1..5000).each do |variable|
+	room.questions.create(
+			content: "No#{variable}レスポンステスト用データ。200文字程度のデータ量でレスポンスが悪化しないか。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ-END"
+		)
+	# Question.create(
+	# 			content: "No#{variable}レスポンステスト用データ。200文字程度のデータ量でレスポンスが悪化しないか。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ-END"
+	# 	)
+end

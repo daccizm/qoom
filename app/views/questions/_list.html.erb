@@ -1,18 +1,9 @@
 <%- model_class = Question -%>
 <table class="table table-striped">
-  <thead>
+  <% @questions.each do |question| %>
     <tr>
-      <th><%= model_class.human_attribute_name(:nickname) %></th>
-      <th><%= model_class.human_attribute_name(:content) %></th>
+      <td><%= question.content %></td>
     </tr>
-  </thead>
-  <tbody>
-    <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.nickname %></td>
-        <td><%= question.content %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <% end %>
 </table>
 

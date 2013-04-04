@@ -1,20 +1,10 @@
-<%- model_class = Question -%>
-<div class="page-header">
-  <h1><%= @room.name %></h1>
+<div class="span3"><%= link_to "<<戻る", rooms_path %></div>
+<div class="span6">
+  <div class="page-header">
+    <h1><%= @room.name %> 質問一覧
+        <%= link_to image_tag('refresh.png') , room_questions_path( @room.id ), method: :get, remote: true %>
+    </h1>
+  </div>
+  <div id='questions_list' ><%= render 'questions/list', :questions => @questions %></div>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:nickname) %></th>
-      <th><%= model_class.human_attribute_name(:content) %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @questions.each do |question| %>
-      <tr>
-        <td><%= question.nickname %></td>
-        <td><%= question.content %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="span3"></div>

@@ -9,6 +9,7 @@
 
 Room.delete_all
 Question.delete_all
+RoomsQuestion.delete_all
 
 room = Room.create( name: 'レスポンステスト' )
 Room.create( name: '2013年男祭り' )
@@ -23,11 +24,8 @@ Room.create( name: '予備7' )
 Room.create( name: '予備8' )
 Room.create( name: '予備9' )
 
-(1..5000).each do |variable|
+(1..2000).each do |variable|
 	room.questions.create(
 			content: "No#{variable}レスポンステスト用データ。200文字程度のデータ量でレスポンスが悪化しないか。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ-END"
 		)
-	# Question.create(
-	# 			content: "No#{variable}レスポンステスト用データ。200文字程度のデータ量でレスポンスが悪化しないか。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ-END"
-	# 	)
 end

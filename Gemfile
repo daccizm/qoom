@@ -15,6 +15,8 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+gem 'devise'
+
 gem 'twitter-bootstrap-rails'
 
 # Gems used only for assets and not required

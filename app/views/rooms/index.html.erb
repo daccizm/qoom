@@ -10,8 +10,8 @@
     <% @rooms.each do |room| %>
       <tr>
         <td><%= room.name %></td>
-        <td><%= link_to "質問する", new_room_question_path( room.id ) %></td>
-        <td><%= link_to "質問の一覧を見る", room_questions_path( room.id ) %></td>
+        <td><%= link_to "質問する", new_user_room_question_path( @user.id, room.id ) %></td>
+        <td><%= link_to "質問の一覧を見る", user_room_questions_path( @user.id, room.id ) %></td>
       </tr>
     <% end %>
   </table>

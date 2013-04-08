@@ -7,24 +7,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.delete_all
+UsersRoom.delete_all
 Room.delete_all
-Question.delete_all
 RoomsQuestion.delete_all
+Question.delete_all
 
-room = Room.create( name: 'レスポンステスト' )
-Room.create( name: '2013年男祭り' )
-Room.create( name: '2013年乙女祭り' )
-Room.create( name: '予備1' )
-Room.create( name: '予備2' )
-Room.create( name: '予備3' )
-Room.create( name: '予備4' )
-Room.create( name: '予備5' )
-Room.create( name: '予備6' )
-Room.create( name: '予備7' )
-Room.create( name: '予備8' )
-Room.create( name: '予備9' )
+guest = User.create( account: 'guest', password: 'guest!', password_confirmation: 'guest!' )
+guest_room = guest.rooms.create( name: 'Guest Room' )
 
-(1..2000).each do |variable|
+user = User.create( account: 'TPJ', password: 'tpj!', password_confirmation: 'tpj!' )
+room = user.rooms.create( name: 'レスポンステスト' )
+user.rooms.create( name: '予備1' )
+user.rooms.create( name: '予備2' )
+user.rooms.create( name: '予備3' )
+
+(1..10).each do |variable|
 	room.questions.create(
 			content: "No#{variable}レスポンステスト用データ。200文字程度のデータ量でレスポンスが悪化しないか。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ-END"
 		)

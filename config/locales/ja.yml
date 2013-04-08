@@ -1,0 +1,34 @@
+ja:
+  activerecord:
+    models:
+      user: 利用者
+      room: ルーム
+      question: 質問
+    attributes:
+      user:
+        account: アカウント
+        password: パスワード
+        current_password: 現在のパスワード
+        password_confirmation: パスワード（確認用）
+        remember_me: ログインしたままにする
+      room:
+        name: ルーム名
+    errors:
+      messages:
+        blank: が入力されていません。
+        invalid: "が正しくありません。"
+        confirmation: が確認用のものと異なります。
+        too_short: "は%{count}文字以上で入力して下さい。"
+        too_long: "は%{count}文字以下で入力して下さい。"
+        not_saved: が登録されませんでした。
+        taken: はすでに存在します。
+  views:
+  errors:
+    format: "%{attribute}%{message}"
+  helpers:
+    links:
+      cancel: 戻る
+      edit: 修正する
+      destroy: 削除する
+      new: 新規作成する
+      confirm: 削除しますか？

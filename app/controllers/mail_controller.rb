@@ -40,7 +40,7 @@ class MailController < ApplicationController
     begin
 	  room = Room.find_by_account( message.subject )
       question = room.questions.new(:content => body)
-      if tikkok.save
+      if question.save
         render :text => "ok"
       else
         render :text => "fail to save"

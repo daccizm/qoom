@@ -4,22 +4,29 @@ class MailController < ApplicationController
 
   def create
     message = Mail.new(params[:message])
+    puts "*********************************"
+    puts message.inspect
+    puts "*********************************"
 
     body = ""
     encoding = ""
     has_plain_text = false;
     has_html_text = false;
- 
+
     message.body.to_s.split("\n").each {|m|
  
       if m =~ /charset=.*/
         encoding = $&.gsub("charset=","")
+	    puts encoding
+	    puts "1 *********************************"
       end
       unless m.index("text/plain") == nil
         has_plain_text = true
+	    puts "2 *********************************"
       end
       unless m.index("text/html") == nil
         has_html_text = true
+	    puts "3 *********************************"
       end
       #debug
       puts m
@@ -28,6 +35,7 @@ class MailController < ApplicationController
         if m.index("Content-Transfer-Encoding") == nil
           if m.index(/\-\-[0-9a-z]*/) == nil
             body += m unless has_plain_text && has_html_text
+     	    puts "4 *********************************"
           end
         end
       end
@@ -35,6 +43,9 @@ class MailController < ApplicationController
     unless body.encoding.to_s == "UTF-8"
       body = body.encode("UTF-8")
       encoding = encoding.encode("UTF-8")
+      puts body
+      puts encoding
+      puts "5 *********************************"
     end
  
     begin

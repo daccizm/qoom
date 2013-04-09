@@ -38,7 +38,7 @@ class MailController < ApplicationController
     end
  
     begin
-	  room = Room.find(message.subject)
+	  room = Room.find_by_account( message.subject )
       question = room.questions.new(:content => body)
       if tikkok.save
         render :text => "ok"

@@ -6,6 +6,8 @@ Qoom::Application.routes.draw do
 
   get "welcome/index"
 
+  match 'mail/new' => 'mail#create'
+
   # devise_scope :user do
   #   get "/login" => "users#index"
   # end

@@ -38,14 +38,21 @@ class MailController < ApplicationController
     end
  
     begin
+      #debug
+      puts "start"
+      puts message.subject
+      puts body
 	  room = Room.find_by_account( message.subject )
       question = room.questions.new(:content => body)
       if question.save
+        puts "OK"
         render :text => "ok"
       else
+        puts "NG"
         render :text => "fail to save"
       end
     rescue => e
+      puts "raise"
       render :text => "some error has occurred"
     end
 

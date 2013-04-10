@@ -1,9 +1,11 @@
 <div class="span3"><%#= link_to "<<戻る", rooms_path %></div>
 <div class="span6">
   <div class="page-header">
-    <h1><%= @room.name %> 質問一覧
-        <%= link_to image_tag('refresh.png') , user_room_questions_path( current_user.id, @room.id ), method: :get, remote: true %>
+    <h1><%= @room.name %></br>
+    	質問一覧
+        <%= link_to "", user_room_questions_path( current_user.id, @room.id ), method: :get, remote: true, id: :a_questions_list %>
     </h1>
+    <p>１０秒毎に最新の情報を表示します。</p>
   </div>
   <div id='questions_list' ><%= render 'questions/list', :questions => @questions %></div>
 </div>

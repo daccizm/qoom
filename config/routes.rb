@@ -8,13 +8,6 @@ Qoom::Application.routes.draw do
 
   match 'mail/new' => 'mail#create'
 
-  # devise_scope :user do
-  #   get "/login" => "users#index"
-  # end
-  # as :user do
-  #   get "/login" => "users#index"
-  # end
-
   resources :users do
     resources :rooms do
       resources :questions

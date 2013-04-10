@@ -54,8 +54,9 @@ class MailController < ApplicationController
       puts params[:headers][:Subject]
       puts params[:plain]
 	  room = Room.find_by_account( params[:headers][:Subject] )
+      puts room.inspect
       question = room.questions.new(:content => params[:plain] )
-      if question.save
+      if room.save
         puts "OK"
         render :text => "ok"
       else

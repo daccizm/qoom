@@ -3,7 +3,7 @@ class MailController < ApplicationController
 
   def create
     begin
-	  room = Room.find_by_account( params[:headers][:Subject] )
+	  room = Cooperation.find_by_account( params[:headers][:Subject] ).room
       room.questions.new(:content => params[:plain] )
       if room.save
         render :text => "ok"

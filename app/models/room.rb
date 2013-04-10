@@ -5,5 +5,7 @@ class Room < ActiveRecord::Base
   has_many :rooms_questions
   has_many :questions, :through=>:rooms_questions
 
-  attr_accessible :account, :name
+  has_many :cooperations
+
+  attr_accessible :name
 end

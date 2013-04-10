@@ -13,14 +13,14 @@ Room.delete_all
 RoomsQuestion.delete_all
 Question.delete_all
 
-guest = User.create( account: 'guest', password: 'guest!', password_confirmation: 'guest!' )
-guest_room = guest.rooms.create( account: 'guest', name: 'Guest Room' )
+Cooperation.delete_all
 
 user = User.create( account: 'TPJ', password: 'tpj!', password_confirmation: 'tpj!' )
-room = user.rooms.create( account: 'tpj_response', name: 'レスポンステスト' )
-user.rooms.create( account: 'tpj_spare1',name: '予備1' )
-user.rooms.create( account: 'tpj_spare2',name: '予備2' )
-user.rooms.create( account: 'tpj_spare3',name: '予備3' )
+room = user.rooms.create( name: 'TPJ Activity Report Meeting 2013' )
+room.cooperations.create( account: 'tpj2013' )
+user.rooms.create( name: '予備1' )
+user.rooms.create( name: '予備2' )
+user.rooms.create( name: '予備3' )
 
 (1..10).each do |variable|
 	room.questions.create(

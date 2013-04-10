@@ -51,9 +51,9 @@ class MailController < ApplicationController
     begin
       #debug
       puts "start"
-      puts params[:headers][:subject]
+      puts params[:headers][:Subject]
       puts params[:plain]
-	  room = Room.find_by_account( params[:headers][:subject] )
+	  room = Room.find_by_account( params[:headers][:Subject] )
       question = room.questions.new(:content => params[:plain] )
       if question.save
         puts "OK"

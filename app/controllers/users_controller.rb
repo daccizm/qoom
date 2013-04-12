@@ -2,10 +2,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    # @user = User.guest.first
     respond_to do |format|
       format.html # index.html.erb
-      # redirect_to user_rooms_url(@user.id)
     end
   end
 

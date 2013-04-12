@@ -25,7 +25,6 @@ class QuestionsController < ApplicationController
   # GET /questions/new.json
   def new
     @room = Room.find(params[:room_id])
-    # @questions = Question.sorted_created_at_desc
     @questions = @room.questions.sorted_created_at_desc
     @question = Question.new
 
@@ -47,7 +46,6 @@ class QuestionsController < ApplicationController
       @room.questions.create( params[:question] )
       @question = Question.new
       @questions = @room.questions.sorted_created_at_desc
-      # @questions = Question.sorted_created_at_desc
       format.html { render action: "new", notice: 'Question was successfully updated.' }
     end
   end

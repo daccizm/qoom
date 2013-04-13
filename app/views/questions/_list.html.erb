@@ -2,7 +2,10 @@
 <table class="table table-striped">
   <% @questions.each do |question| %>
     <tr>
-      <td><%= question.content %></td>
+      <td>
+        <%= question.created_at.strftime("%Y/%m/%d/ %H:%M:%S") %></br>
+      	<%= question.content %>
+      </td>
     </tr>
   <% end %>
 </table>

@@ -7,6 +7,8 @@ gem 'rails', '3.2.11'
 
 gem 'heroku'
 
+gem 'google-analytics-rails'
+
 group :production do
   gem 'pg'
 end

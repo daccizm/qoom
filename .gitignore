@@ -16,3 +16,5 @@
 /vendor/bundle
 /public/assets/*
 /db/schema.rb
+
+/config/environments/production.rb

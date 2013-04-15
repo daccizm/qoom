@@ -4,7 +4,7 @@ class DemandsController < ApplicationController
   # GET /demands
   # GET /demands.json
   def index
-    @demands = Demand.all
+    @demands = Demand.order("created_at desc")
 
     respond_to do |format|
       format.html # index.html.erb

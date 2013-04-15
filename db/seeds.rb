@@ -16,11 +16,5 @@ Question.delete_all
 Cooperation.delete_all
 
 user = User.create( account: 'TPJ', password: 'tpj!', password_confirmation: 'tpj!' )
-room = user.rooms.create( name: '２０１３年度春期活動計画報告会' )
-room.cooperations.create( account: 'tpj2013' )
-
-# (1..10).each do |variable|
-# 	room.questions.create(
-# 			content: "No#{variable}レスポンステスト用データ。200文字程度のデータ量でレスポンスが悪化しないか。あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ-END"
-# 		)
-# end
+room = user.rooms.create( name: 'demo' )
+room.cooperations.create( account: 'demo' )

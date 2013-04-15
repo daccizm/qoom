@@ -8,6 +8,7 @@ Qoom::Application.routes.draw do
 
   match 'mail/new' => 'mail#create'
 
+  resources :demands
   resources :users do
     resources :rooms do
       resources :questions

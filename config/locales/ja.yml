@@ -4,6 +4,7 @@ ja:
       user: 利用者
       room: ルーム
       question: 質問
+      demand: ご要望
     attributes:
       user:
         account: アカウント
@@ -13,6 +14,9 @@ ja:
         remember_me: ログインしたままにする
       room:
         name: ルーム名
+      demand:
+        content: 内容
+        created_at: 登録日時
     errors:
       messages:
         blank: が入力されていません。

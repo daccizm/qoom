@@ -3,6 +3,23 @@
 </a>
 <div class="container nav-collapse">
   <ul class="nav">
-    <li><%= link_to "Roomを選択", user_rooms_path( current_user.id ) %></li>
+  	<% if user_signed_in? %>
+      <li><%= link_to "Roomを選択", user_rooms_path( current_user.id ) %></li>
+    <% end %>
+    <li><a href="#modal-logout" data-toggle="modal">Qoomへのご要望</a></li>
   </ul>
 </div><!--/.nav-collapse -->
+
+<div id="modal-logout" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="mdl_header_demand" aria-hidden="true">
+  <div class="modal-header">
+  	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="mdl_header_demand">Qoomへのご要望</h3><!-- モーダルのヘッダー部分 -->
+  </div>
+  <div class="modal-body">
+  	<p id="demand_created_status"></p>
+    <%= render partial: 'demands/form', :demand => @demand %>
+  </div>
+  <div class="modal-footer">
+  	<%#= link_to "ご要望一覧", demands_path, {:class => "btn primary"} %>
+  </div>
+</div>

@@ -3,8 +3,8 @@
   <% @questions.each_with_index do |question, index| %>
     <tr>
       <td>
-      	<%= @questions.size - index %>:&nbsp;
-        <%= question.created_at.strftime("%Y/%m/%d/ %H:%M:%S") %></br>
+      	<span style="color: gray;"><%= @questions.size - index %>:&nbsp;
+        <%= question.created_at.strftime("%Y/%m/%d/ %H:%M:%S") %></span></br>
       	<%= question.content %>
       </td>
     </tr>

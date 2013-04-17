@@ -22,7 +22,7 @@ unless tpj
 end
 
 tpjmed = User.where(:account=>'tpjmed').first
-unless tpj
+unless tpjmed
   user = User.create( account: 'tpjmed', password: 'tpjmed!', password_confirmation: 'tpjmed!' )
   room = user.rooms.create( name: '2013/04/22 医療部会' )
 end

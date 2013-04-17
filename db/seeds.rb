@@ -14,14 +14,14 @@
 # Question.delete_all
 # Cooperation.delete_all
 
-tpj = User.where(:account=>'TPJ')
+tpj = User.where(:account=>'TPJ').first
 unless tpj
   user = User.create( account: 'TPJ', password: 'tpj!', password_confirmation: 'tpj!' )
   room = user.rooms.create( name: 'demo' )
   room.cooperations.create( account: 'demo' )
 end
 
-tpjmed = User.where(:account=>'TPJMED')
+tpjmed = User.where(:account=>'TPJMED').first
 unless tpj
   user = User.create( account: 'TPJMED', password: 'tpjmed!', password_confirmation: 'tpjmed!' )
   room = user.rooms.create( name: '2013/04/22 医療部会' )

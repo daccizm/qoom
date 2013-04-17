@@ -1,6 +1,9 @@
 # coding: utf-8
 
 class DemandsController < ApplicationController
+
+  skip_before_filter :authenticate_user!
+
   # GET /demands
   # GET /demands.json
   def index

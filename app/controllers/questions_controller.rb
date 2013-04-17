@@ -46,7 +46,7 @@ class QuestionsController < ApplicationController
       @room.questions.create( params[:question] )
       @question = Question.new
       @questions = @room.questions.sorted_created_at_desc
-      format.html { render action: "new", notice: 'Question was successfully updated.' }
+      format.js { render action: "create.js.erb" }
     end
   end
 

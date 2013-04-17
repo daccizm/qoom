@@ -1,4 +1,4 @@
-<%= form_for [current_user, @room, @question] do |f| %>
+<%= form_for [current_user,@room, @question], remote: true do |f| %>
   <div class="control-group">
     <div class="controls">
       <%= f.text_area :content, :class => 'text_area',:placeholder => "（必須）質問内容", :size=>"60x10" %>

@@ -10,6 +10,21 @@ class QuestionsController < ApplicationController
     end
   end
 
+  # GET /questions
+  # GET /questions.json
+  def commentary
+    @room = Room.find(params[:room_id])
+    if params[:last_time]
+      @questions = @room.questions.newest( params[:last_time] )
+    else
+      @questions = [@room.questions.sorted_created_at_desc.first]
+    end
+    respond_to do |format|
+      format.html # commentary.html.erb
+      format.js   { render action: "commentary.js.erb" }
+    end
+  end
+
   # # GET /questions/1
   # # GET /questions/1.json
   # def show

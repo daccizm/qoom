@@ -8,4 +8,5 @@ class Question < ActiveRecord::Base
 
   scope :sorted_created_at_desc, order("created_at desc")
   
+  scope :newest, lambda { |last_time| where("created_at > ?", last_time).order("created_at desc") }
 end

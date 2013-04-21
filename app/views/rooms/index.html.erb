@@ -12,6 +12,7 @@
         <td><%= room.name %></td>
         <td><%= link_to "質問する", new_user_room_question_path( current_user.id, room.id ) %></td>
         <td><%= link_to "質問の一覧を見る", user_room_questions_path( current_user.id, room.id ) %></td>
+        <!--<td><%#= link_to "質問の実況を見る", commentary_user_room_questions_path( current_user.id, room.id ) %></td>-->
       </tr>
     <% end %>
   </table>

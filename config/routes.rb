@@ -11,7 +11,9 @@ Qoom::Application.routes.draw do
   resources :demands
   resources :users do
     resources :rooms do
-      resources :questions
+      resources :questions do
+        get "commentary", :on => :collection
+      end
     end
   end
 

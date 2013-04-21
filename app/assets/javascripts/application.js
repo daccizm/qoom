@@ -15,7 +15,28 @@
 //= require twitter/bootstrap
 //= require_tree .
 $(document).ready( function() {
+
+  var comments = new CommentCollection();
+  var commentView = new CommentView({ model: comments });
+  commentView.width = $("#comment_view").width();
+  commentView.height = 300;
+  commentView.$el.appendTo($('#comment_view'));
+
+  $("#comment_button").click(function(){
+    $("[name^='comment_text']").each(function(){
+      self = $(this);
+      var comment = new Comment({ text: self.val(), font_size: "big", font_color: "seagreen" });
+      // var comment = new Comment({ text: self.val(), font_size: "big", font_color: "white" });
+      comments.add(comment);
+      setTimeout(function(){
+      },500);
+    });
+  });
+  commentView.play();
+
 	setInterval( function() {
       $('#a_questions_list').click();
+      $('#comment_button').click();
 	}, 10000);
+
 });

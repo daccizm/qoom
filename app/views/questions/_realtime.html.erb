@@ -1,0 +1,7 @@
+<%= link_to "", commentary_user_room_questions_path( current_user.id, @room.id, :last_time => @questions.first.created_at ), method: :get, remote: true, id: :a_questions_list %>
+
+<% @questions.each_with_index do |question, index| %>
+<input type="hidden" name="comment_text_<%= index %>" value=
+  "<%= question.content %>"
+ />
+<% end %>

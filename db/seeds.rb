@@ -14,11 +14,17 @@
 # Question.delete_all
 # Cooperation.delete_all
 
+demo = User.where(:account=>'demo').first
+unless demo
+  user = User.create( account: 'demo', password: 'demo!', password_confirmation: 'demo!' )
+  user.rooms.create( name: 'demo1' )
+  user.rooms.create( name: 'demo2' )
+end
+
 tpj = User.where(:account=>'tpj').first
 unless tpj
   user = User.create( account: 'tpj', password: 'tpj!', password_confirmation: 'tpj!' )
   room = user.rooms.create( name: 'demo' )
-  room.cooperations.create( account: 'demo' )
 end
 
 tpjmed = User.where(:account=>'tpjmed').first

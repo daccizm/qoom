@@ -1,19 +1,27 @@
-<div class="span3"></div>
-<div class="span6">
+<div class="span2">
+</div>
+
+<div class="span4">
+  <div class="hero-unit">
+    <h1>Qoom</h1>
+    <h4>ミーティングでより良い時間を過ごすために、<br/>
+    気軽に質問してみませんか？</h4>
+  </div>
+</div>
+<div class="span3">
+  <div class="login-unit">
 
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
     <div class="control-group">
-      <%= f.label :account %>
       <div class="controls">
-        <%= f.text_field :account, :autofocus => true %>
+        <%= f.text_field :account, :placeholder => "アカウント", :autofocus => true %>
       </div>
     </div>
 
     <div class="control-group">
-      <%= f.label :password %>
       <div class="controls">
-        <%= f.password_field :password %>
+        <%= f.password_field :password, :placeholder => "パスワード" %>
       </div>
     </div>
     <% if devise_mapping.rememberable? -%>
@@ -21,10 +29,11 @@
         <%= f.check_box :remember_me %><%= f.label :remember_me %>
       </label>
     <% end -%>
-    <br />
-    <br />
-    <%= f.submit "ログインする", :class => 'btn btn-info'  %>
+    <br/>
+    <%= f.submit "ログイン", :class => 'btn btn-info'  %>
   <% end %>
 
+  </div>
 </div>
-<div class="span3"></div>
+<div class="span3">
+</div>

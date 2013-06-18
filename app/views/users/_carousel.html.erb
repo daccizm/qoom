@@ -1,0 +1,23 @@
+<div id="room_carousel" class="carousel slide" style="position:relative;top:20px;">
+  <ol class="carousel-indicators">
+	<% current_user.rooms.each_with_index do |room, index| %>
+	  <li data-target="#room_carousel" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>" ></li>
+	<% end %>
+  </ol>
+  <div class="carousel-inner">
+	<% current_user.rooms.each_with_index do |room, index| %>
+    <div class="<%= index == 0 ? 'active item' : 'item' %>">
+
+      <div class="room-container">
+        <h2><%= link_to room.name, new_user_room_question_path( current_user.id, room.id ) %></h2>
+      </div>
+      <div class="room-container questions-count">
+        <p>質問数:&nbsp;&nbsp;<%= room.questions.count %></p>
+      </div>
+
+	  </div>
+	<% end %>
+  </div>
+  <a class="carousel-control left" style="top:30px;" href="#room_carousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" style="top:30px;" href="#room_carousel" data-slide="next">&rsaquo;</a>
+</div>

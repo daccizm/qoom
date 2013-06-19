@@ -1,0 +1,21 @@
+<div class="wrap">
+	<div class="scrollbar">
+		<div class="handle">
+			<div class="mousearea"></div>
+		</div>
+	</div>
+	<div class="frame effects" id="effects">
+		<ul class="clearfix">
+			<% current_user.rooms.each do |room| %>
+				<li>
+					<%= link_to room.name, new_user_room_question_path( current_user.id, room.id ) %>
+			        <p>質問数:&nbsp;<%= room.questions.count %></p>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<div class="controls center">
+		<button class="btn prev"><i class="icon-chevron-left"></i></button>&nbsp;&nbsp;
+		<button class="btn next"><i class="icon-chevron-right"></i></button>
+	</div>
+</div>

@@ -8,4 +8,7 @@ class Room < ActiveRecord::Base
   has_many :cooperations
 
   attr_accessible :name
+
+  default_scope { order("created_at desc") }
+
 end

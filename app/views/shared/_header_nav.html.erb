@@ -12,7 +12,7 @@
           <i class="icon-user"></i>ユーザ<span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-          <li><%= link_to "ルームを作成", user_rooms_path(current_user.id) %></li>
+          <li><%= link_to "ルームの編集", user_rooms_path(current_user.id) %></li>
           <li><a href="#modal-logout" data-toggle="modal">Qoomへのご要望</a></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         </ul>

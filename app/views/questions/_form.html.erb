@@ -1,11 +1,11 @@
 <%= form_for [current_user,@room, @question], remote: true do |f| %>
   <div class="control-group">
     <div class="controls">
-      <%= f.text_area :content, :class => 'text_area',:placeholder => "（必須）質問内容", :size=>"60x10" %>
+      <%= f.text_area :content, :class => 'text_area',:placeholder => "（必須）質問内容", :size=>"120x5" %>
     </div>
   </div>
 
   <div class="form-actions">
-    <%= f.submit '質問する', :class => 'btn btn-primary' %>
+    <%= f.submit '質問', :class => 'btn btn-primary' %>
   </div>
 <% end %>

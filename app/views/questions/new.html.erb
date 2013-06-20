@@ -1,17 +1,26 @@
-<div class="span6">
-  <div class="page-header">
-    <h1><%= @room.name %></h1>
+<div class="row">
+  <div class="span4"></div>
+  <div class="span4">
+    <div class="page-header page-header-no-bottom">
+    	<h1><%= @room.name %></h1>
+    </div>
+  	<div class="accordion" id="accordion2">
+   	  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"><i class="icon-hand-down"></i>&nbsp;質問の投稿</a>
+	  <div id="collapseOne" class="accordion-body collapse in">
+	    <div class="accordion-inner">
+		  <%= render :partial => 'form' %>
+		</div>
+	  </div>
+	</div>
   </div>
-  <%= render :partial => 'form' %>
+  <div class="span4"></div>
 </div>
 
-<div class="span6">
-
-	<div class="page-header">
-	  <h1>質問一覧
-  	    <%= link_to "", user_room_questions_path( current_user.id, @room.id ), method: :get, remote: true, id: :a_questions_list %>
-	  </h1>
-	</div>
+<div class="row">
+  <div class="span4"></div>
+  <div class="span4">
+    <%= link_to "", user_room_questions_path( current_user.id, @room.id ), method: :get, remote: true, id: :a_questions_list %>
 	<div id='questions_list' ><%= render 'questions/list', :questions => @questions %></div>
-
+  </div>
+  <div class="span4"></div>
 </div>

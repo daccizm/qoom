@@ -8,7 +8,7 @@
 		<ul class="clearfix">
 			<% current_user.rooms.each do |room| %>
 				<li>
-					<%= link_to room.name, new_user_room_question_path( current_user.id, room.id ) %>
+					<%= link_to room.name, new_user_room_question_path(current_user, room) %>
 			        <p>質問数:&nbsp;<%= room.questions.count %></p>
 				</li>
 			<% end %>

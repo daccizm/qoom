@@ -44,8 +44,8 @@
             <a class="brand">Qoom</a>
           <% else %>
             <a class="brand" href="<%= root_path %>"><i class="icon-home"></i>ホーム</a>
+            <%= render partial: 'shared/header_nav' %>
           <% end %>
-          <%= render partial: 'shared/header_nav' %>
         </div>
       </div>
     </div>

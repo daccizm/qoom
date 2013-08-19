@@ -2,8 +2,6 @@ Qoom::Application.routes.draw do
 
   devise_for :users
 
-  get "welcome/index"
-
   match 'mail/new' => 'mail#create'
 
   resources :demands
@@ -16,7 +14,7 @@ Qoom::Application.routes.draw do
   end
 
   authenticated :user do
-    root :to => "users#index"
+    root :to => "welcome#index"
   end
 
   unauthenticated :user do

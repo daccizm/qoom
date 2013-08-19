@@ -10,30 +10,40 @@
 </div>
 <div class="span3">
   <div class="login-unit">
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-
-    <div class="control-group">
-      <div class="controls">
-        <%= f.text_field :account, :placeholder => "アカウント", :autofocus => true %>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.text_field :account, :placeholder => "アカウント", :autofocus => true %>
+          <%= f.password_field :password, :placeholder => "パスワード" %>
+          <% if devise_mapping.rememberable? -%>
+            <label class="checkbox">
+              <%= f.check_box :remember_me %><%= f.label :remember_me %>
+            </label>
+          <% end -%>
+        </div>
       </div>
-    </div>
-
-    <div class="control-group">
-      <div class="controls">
-        <%= f.password_field :password, :placeholder => "パスワード" %>
-      </div>
-    </div>
-    <% if devise_mapping.rememberable? -%>
-      <label class="checkbox">
-        <%= f.check_box :remember_me %><%= f.label :remember_me %>
-      </label>
-    <% end -%>
-    <br/>
-    <%= f.submit "ログイン", :class => 'btn btn-info'  %>
-  <% end %>
-
+      <%= f.submit "ログイン", :class => 'btn btn-info'  %>
+    <% end %>
   </div>
+
+  <div class="login-unit">
+    <h4>新しくアカウントを作成</h4>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="control-group">
+        <div class="controls">
+          <%= f.text_field :account, :placeholder => "アカウント" %>
+          <%= f.password_field :password, :placeholder => "パスワード" %>
+          <%= f.password_field :password_confirmation, :placeholder => "パスワード（確認用）" %>
+        </div>
+      </div>
+
+      <%= f.submit "アカウントを作成", :class => 'btn btn-info'  %>
+    <% end %>
+  </div>
+
 </div>
 <div class="span3">
 </div>

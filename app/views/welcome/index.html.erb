@@ -1,12 +1,19 @@
-<div class="span3"></div><!--/span-->
+<div class="span2">
+</div>
 
-<div class="span6">
-
-  <div class="page-header">
-    <h1>ルーム</h1>
+<div class="span4">
+  <div class="hero-unit">
+    <h1>Qoom</h1>
+    <h4>ミーティングでより良い時間を過ごすために、<br/>
+    気軽に質問してみませんか？</h4>
   </div>
-  <%= render 'users/sly' %>
+</div>
+<div class="span3">
+	<%= render :template => 'devise/sessions/new' %>
+
+	<%= render :template => 'devise/registrations/new' %>
 
 </div>
 
-<div class="span3"></div>
+<div class="span3">
+</div>

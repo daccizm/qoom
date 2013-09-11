@@ -62,5 +62,7 @@ module Qoom
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+
+    config.action_view.field_error_proc = proc { |input, instance| input }
   end
 end

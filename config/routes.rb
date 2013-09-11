@@ -14,13 +14,11 @@ Qoom::Application.routes.draw do
   end
 
   authenticated :user do
-    root :to => "welcome#index"
+    root :to => "top#index"
   end
 
   unauthenticated :user do
-    devise_scope :user do 
-      get "/" => "devise/sessions#new"
-    end
+    root :to => "welcome#index"
   end
 
 

@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :account
 
+  validates :account,:presence=>true,:uniqueness => true, :length=>{:maximum=>20}
+
   # scope :guest, lambda { where(:account=>'guest').first }
   scope :guest, where(:account=>'guest')
 
